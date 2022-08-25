@@ -1,14 +1,14 @@
+const app = require("express").Router();
+const fs = require("fs")
+const { v4: uuidv4 } = require('uuid');
 
-// API routes
+// GET route for notes
+app.get('/', (req, res) => {
+  // If there is no query parameter, return db file
+//   res.json("../db/db.json");
+  res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf8")))
 
-
-// // GET route for notes
-// app.get('/api/notes', (req, res) => {
-//   console.log(res, 'first');
-//   // If there is no query parameter, return db file
-//   res.json(noteData);
-  
-// });
+});
 
 // // POST request to add a note
 // app.post('/', (req, res) => {
@@ -63,3 +63,4 @@
 //     res.status(500).json('Error in posting note');
 //   }
 // });
+module.exports = app
