@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 // GET route for notes
 router.get('/', (req, res) => {
   // If there is no query parameter, return db file
-  res.json("./db/db.json");
+   return res.json("./db/db.json");
 //   res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf8")))
 
 });
@@ -50,6 +50,5 @@ router.post('/', (req, res) => {
     } 
     });
 
-
-    module.exports = router
+module.exports = router
 
