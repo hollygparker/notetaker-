@@ -10,8 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // access to files in public folder
 app.use(express.static('public'));
-app.use('/', htmlRoutes)
 app.use('/api/notes',apiRoutes)
+app.use('/', htmlRoutes)
+
 
 
 app.listen(PORT, () =>
