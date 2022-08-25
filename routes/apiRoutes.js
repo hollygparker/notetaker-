@@ -48,6 +48,11 @@ router.post('/', (req, res) => {
     } 
     });
 
+// // Deleting the note by ID
+// router.delete("/:id",(req,res)=>{
     
+// })
+
+
 module.exports = router
 
