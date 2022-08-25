@@ -2,19 +2,23 @@ const express = require('express');
 const path = require('path');
 const noteData = require('./db/db.json');
 const uuid = require('./helpers/uuid');
+
 const app = express();
 const PORT = 3001;
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.send('Navigate to /notes or index.html'));
+// app.get('/', (req, res) => res.send('Navigate to /notes or index.html'));
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/index.html'))
+);
 
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'notes.html'))
+  res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+  res.sendFile(path.join(__dirname, './public/index.html'))
 )
 
 // GET route to get all of the notes or all the terms sorted
